@@ -60,7 +60,7 @@ namespace BankingApp
 
             if (username != null && password != null)
             {
-                BankAccount newAccount = new BankAccount(Username, Password);
+                BankAccount newAccount = new BankAccount(username, password);
                 _accounts.Add(username, newAccount);
             }
         }
@@ -91,7 +91,30 @@ namespace BankingApp
         }
         static void Main(string[] args)
         {
-            
+            while (_programActive == true)
+            {
+                Console.Clear();
+                Console.WriteLine("Select program mode.");
+                Console.WriteLine("[1]: Sign up");
+                Console.WriteLine("[2]: Log in");
+                Console.WriteLine("[3]: Exit");
+
+                ConsoleKeyInfo userSelection = Console.ReadKey();
+                Console.Clear();
+
+                if (userSelection.Key == ConsoleKey.D1)
+                {
+                    SignUp();
+                }
+                else if (userSelection.Key == ConsoleKey.D2)
+                {
+                    LogIn();
+                } 
+                else if (userSelection.Key == ConsoleKey.D3)
+                {
+                    _programActive = false;
+                }
+            }
         }
     }
 }
