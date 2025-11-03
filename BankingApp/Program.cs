@@ -4,30 +4,39 @@ namespace BankingApp
 {
     class BankAccount
     {
-        private string Username;
-        private string Password;
-        private double AccountBalance = 0;
-        public BankAccount(string InitialUsername, string InitialPassword)
+        private string _username;
+        private string _password;
+        private double _accountBalance = 0;
+        public BankAccount(string initialUsername, string initialPassword)
         {
-            Username = InitialUsername;
-            Password = InitialPassword;
+            _username = initialUsername;
+            _password = initialPassword;
         }
-        public bool Authenticate(string _Password) 
+        public bool Authenticate(string password) 
         {
-            return (Password == _Password);
+            return (password == _password);
         }
         public double GetAccountBalance()
         {
-            return AccountBalance;
+            return _accountBalance;
         }
-        public double ModifyAccountBalance(double ModifyBy)
+        public double ModifyAccountBalance(double modifyBy)
         {
-            AccountBalance += ModifyBy;
-            return AccountBalance;
+            _accountBalance += modifyBy;
+            return _accountBalance;
         }
     }
     internal class Program
     {
+        private static void ThrowError(string message)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("[Error]: " + message);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Press any key to continue ..");
+            Console.ReadLine();
+        }
         static void Main(string[] args)
         {
             
