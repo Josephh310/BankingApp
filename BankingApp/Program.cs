@@ -28,6 +28,7 @@ namespace BankingApp
     }
     internal class Program
     {
+        private static Dictionary<string, BankAccount> _accounts = new Dictionary<string, BankAccount>();
         private static void ThrowError(string message)
         {
             Console.Clear();
